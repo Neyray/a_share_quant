@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+data/cache/*.csv
+data/state/*_account.json
+reports/*.csv
+reports/*.json

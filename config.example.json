@@ -1,0 +1,38 @@
+{
+  "initial_cash": 200000,
+  "start_date": "20180101",
+  "symbols": [
+    "600519",
+    "000858",
+    "300750",
+    "601318",
+    "招商银行",
+    "比亚迪",
+    "宁德时代",
+    "贵州茅台"
+  ],
+  "strategy": {
+    "max_positions": 5,
+    "rebalance_days": 5,
+    "lookback_days": 120,
+    "ma_fast": 20,
+    "ma_slow": 60,
+    "momentum_days": 20,
+    "stop_loss": 0.12,
+    "take_profit": 0.35,
+    "max_position_weight": 0.22,
+    "cash_buffer": 0.05
+  },
+  "trading": {
+    "commission_rate": 0.0003,
+    "min_commission": 5,
+    "stamp_tax_rate": 0.0005,
+    "slippage_rate": 0.0005,
+    "lot_size": 100
+  },
+  "paths": {
+    "cache_dir": "data/cache",
+    "state_dir": "data/state",
+    "report_dir": "reports"
+  }
+}
