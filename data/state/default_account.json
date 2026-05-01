@@ -1,0 +1,75 @@
+{
+  "cash": 66082.93192850001,
+  "positions": {
+    "600309": {
+      "symbol": "600309",
+      "shares": 400,
+      "avg_price": 89.58477,
+      "last_price": 89.54
+    },
+    "601088": {
+      "symbol": "601088",
+      "shares": 700,
+      "avg_price": 48.024,
+      "last_price": 48.0
+    },
+    "002594": {
+      "symbol": "002594",
+      "shares": 300,
+      "avg_price": 103.03149,
+      "last_price": 102.98
+    },
+    "002475": {
+      "symbol": "002475",
+      "shares": 500,
+      "avg_price": 67.03349999999999,
+      "last_price": 67.0
+    }
+  },
+  "orders": [
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "600309",
+      "side": "BUY",
+      "price": 89.58477,
+      "shares": 400,
+      "amount": 35833.908,
+      "fee": 10.7501724,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "601088",
+      "side": "BUY",
+      "price": 48.024,
+      "shares": 700,
+      "amount": 33616.8,
+      "fee": 10.08504,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "002594",
+      "side": "BUY",
+      "price": 103.03149,
+      "shares": 300,
+      "amount": 30909.447,
+      "fee": 9.272834099999999,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "002475",
+      "side": "BUY",
+      "price": 67.03349999999999,
+      "shares": 500,
+      "amount": 33516.74999999999,
+      "fee": 10.055024999999997,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    }
+  ]
+}

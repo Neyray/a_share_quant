@@ -30,6 +30,11 @@ def main() -> None:
     backtest.add_argument("--start")
     backtest.add_argument("--end", default=today_yyyymmdd())
 
+    ml_backtest = sub.add_parser("ml-backtest", help="Run rolling ML return-prediction backtest")
+    ml_backtest.add_argument("--config", default="config.json")
+    ml_backtest.add_argument("--start")
+    ml_backtest.add_argument("--end", default=today_yyyymmdd())
+
     paper_init = sub.add_parser("paper-init", help="Create a virtual paper account")
     paper_init.add_argument("--config", default="config.json")
     paper_init.add_argument("--account", default="default")
@@ -38,6 +43,9 @@ def main() -> None:
     signal = sub.add_parser("signal", help="Fetch latest data and print strategy targets")
     signal.add_argument("--config", default="config.json")
 
+    ml_signal = sub.add_parser("ml-signal", help="Train rolling ML model and print latest targets")
+    ml_signal.add_argument("--config", default="config.json")
+
     snapshot = sub.add_parser("snapshot", help="Refresh realtime prices and show account PnL")
     snapshot.add_argument("--config", default="config.json")
     snapshot.add_argument("--account", default="default")
@@ -45,6 +53,10 @@ def main() -> None:
     rebalance = sub.add_parser("rebalance", help="Place simulated orders to target strategy weights")
     rebalance.add_argument("--config", default="config.json")
     rebalance.add_argument("--account", default="default")
+
+    ml_rebalance = sub.add_parser("ml-rebalance", help="Place simulated orders using rolling ML targets")
+    ml_rebalance.add_argument("--config", default="config.json")
+    ml_rebalance.add_argument("--account", default="default")
 
     settle = sub.add_parser("settle", help="Write daily paper account settlement report")
     settle.add_argument("--config", default="config.json")
@@ -74,6 +86,14 @@ def main() -> None:
         paths = Backtester(config).save_result(result)
         _print_metrics(result.metrics)
         _print(f"reports: {paths}")
+    elif args.command == "ml-backtest":
+        from .ml_strategy import MLBacktester
+
+        tester = MLBacktester(config)
+        result = tester.run(start_date=args.start, end_date=normalize_date(args.end))
+        paths = tester.save_result(result)
+        _print_metrics(result.metrics)
+        _print(f"reports: {paths}")
     elif args.command == "paper-init":
         from .paper import PaperTrader
 
@@ -86,6 +106,12 @@ def main() -> None:
         trader = PaperTrader(config)
         signals = trader.generate_signals()
         _print_signals(signals)
+    elif args.command == "ml-signal":
+        from .ml_strategy import MLPaperTrader
+
+        trader = MLPaperTrader(config)
+        signals = trader.generate_signals()
+        _print_signals(signals)
     elif args.command == "snapshot":
         from .paper import PaperTrader
 
@@ -95,6 +121,14 @@ def main() -> None:
         from .paper import PaperTrader
 
         result = PaperTrader(config, args.account).rebalance()
+        _print_signals(result["signals"])
+        _print_orders(result["orders"])
+        _print_summary(result["summary"])
+        _print(f"saved account: {result['account_path']}")
+    elif args.command == "ml-rebalance":
+        from .ml_strategy import MLPaperTrader
+
+        result = MLPaperTrader(config, args.account).rebalance()
         _print_signals(result["signals"])
         _print_orders(result["orders"])
         _print_summary(result["summary"])

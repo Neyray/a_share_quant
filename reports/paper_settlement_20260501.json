@@ -1,0 +1,218 @@
+{
+  "date": "20260501",
+  "summary": {
+    "cash": 66082.93192850001,
+    "market_value": 133810.0,
+    "equity": 199892.9319285,
+    "positions": [
+      {
+        "symbol": "600309",
+        "shares": 400,
+        "avg_price": 89.58477,
+        "last_price": 89.54,
+        "market_value": 35816.0,
+        "unrealized_pnl": -17.908000000003085,
+        "weight": 0.17917592010112232
+      },
+      {
+        "symbol": "601088",
+        "shares": 700,
+        "avg_price": 48.024,
+        "last_price": 48.0,
+        "market_value": 33600.0,
+        "unrealized_pnl": -16.80000000000291,
+        "weight": 0.16808998535285097
+      },
+      {
+        "symbol": "002594",
+        "shares": 300,
+        "avg_price": 103.03149,
+        "last_price": 102.98,
+        "market_value": 30894.0,
+        "unrealized_pnl": -15.447000000000116,
+        "weight": 0.15455273831818386
+      },
+      {
+        "symbol": "002475",
+        "shares": 500,
+        "avg_price": 67.03349999999999,
+        "last_price": 67.0,
+        "market_value": 33500.0,
+        "unrealized_pnl": -16.749999999992724,
+        "weight": 0.1675897175393008
+      }
+    ],
+    "order_count": 4
+  },
+  "daily_pnl": null,
+  "daily_return": null,
+  "orders": [
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "600309",
+      "side": "BUY",
+      "price": 89.58477,
+      "shares": 400,
+      "amount": 35833.908,
+      "fee": 10.7501724,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "601088",
+      "side": "BUY",
+      "price": 48.024,
+      "shares": 700,
+      "amount": 33616.8,
+      "fee": 10.08504,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "002594",
+      "side": "BUY",
+      "price": 103.03149,
+      "shares": 300,
+      "amount": 30909.447,
+      "fee": 9.272834099999999,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    },
+    {
+      "time": "2026-05-01 19:21:42",
+      "symbol": "002475",
+      "side": "BUY",
+      "price": 67.03349999999999,
+      "shares": 500,
+      "amount": 33516.74999999999,
+      "fee": 10.055024999999997,
+      "tax": 0.0,
+      "note": "paper_rebalance"
+    }
+  ],
+  "watchlist": [
+    {
+      "symbol": "600519",
+      "name": "贵州茅台",
+      "price": 1384.79,
+      "prev_close": 1401.17,
+      "pct_chg": -0.011690230307528804,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "000858",
+      "name": "五粮液",
+      "price": 97.08,
+      "prev_close": 98.34,
+      "pct_chg": -0.012812690665039761,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "600036",
+      "name": "招商银行",
+      "price": 38.27,
+      "prev_close": 38.5,
+      "pct_chg": -0.005974025974025854,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "601318",
+      "name": "中国平安",
+      "price": 59.37,
+      "prev_close": 59.43,
+      "pct_chg": -0.001009591115598174,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "300750",
+      "name": "宁德时代",
+      "price": 436.0,
+      "prev_close": 445.0,
+      "pct_chg": -0.020224719101123556,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "002594",
+      "name": "比亚迪",
+      "price": 102.98,
+      "prev_close": 105.4,
+      "pct_chg": -0.022960151802656537,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "600276",
+      "name": "恒瑞医药",
+      "price": 53.88,
+      "prev_close": 54.99,
+      "pct_chg": -0.02018548827059463,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "601012",
+      "name": "隆基绿能",
+      "price": 16.46,
+      "prev_close": 16.55,
+      "pct_chg": -0.005438066465256797,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "600030",
+      "name": "中信证券",
+      "price": 27.22,
+      "prev_close": 27.32,
+      "pct_chg": -0.0036603221083455484,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "601899",
+      "name": "紫金矿业",
+      "price": 33.3,
+      "prev_close": 34.14,
+      "pct_chg": -0.024604569420035194,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "600309",
+      "name": "万华化学",
+      "price": 89.54,
+      "prev_close": 90.35,
+      "pct_chg": -0.008965135583840489,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "000333",
+      "name": "美的集团",
+      "price": 81.1,
+      "prev_close": 81.31,
+      "pct_chg": -0.0025827081539786523,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "600887",
+      "name": "伊利股份",
+      "price": 27.46,
+      "prev_close": 26.57,
+      "pct_chg": 0.03349642453895374,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "002475",
+      "name": "立讯精密",
+      "price": 67.0,
+      "prev_close": 68.64,
+      "pct_chg": -0.02389277389277389,
+      "source": "daily_close"
+    },
+    {
+      "symbol": "601088",
+      "name": "中国神华",
+      "price": 48.0,
+      "prev_close": 47.98,
+      "pct_chg": 0.00041684035014588616,
+      "source": "daily_close"
+    }
+  ],
+  "account_path": "/home/jerico/projects/a_share_quant_sim/data/state/default_account.json"
+}

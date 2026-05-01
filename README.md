@@ -119,6 +119,31 @@ reports/paper_report_YYYYMMDD.md
 
 其中 `paper_report_YYYYMMDD.md` 是最适合每天看的简洁日报，包含账户概览、今日买卖、当前持仓、股票池涨跌变化。
 
+
+## 机器学习预测模块
+
+项目现在包含一个不依赖额外安装包的滚动机器学习基线模型，代码在 `quant_sim/ml_strategy.py`。它使用 `pandas` 和 `numpy` 构造价格、均线、动量、波动率、回撤、成交量等特征，并用岭回归预测未来 5 个交易日收益率。训练时只使用在当前决策日已经知道结果的历史样本，避免未来函数。
+
+查看机器学习信号：
+
+```bash
+python -m quant_sim.cli ml-signal --config config.json
+```
+
+运行机器学习滚动回测：
+
+```bash
+python -m quant_sim.cli ml-backtest --config config.json --start 20180101
+```
+
+使用机器学习信号执行一次模拟调仓：
+
+```bash
+python -m quant_sim.cli ml-rebalance --config config.json
+```
+
+注意：当前机器学习模块是研究基线，不保证优于默认趋势动量策略。是否切换自动脚本，应该以滚动回测、最大回撤、交易成本和模拟盘表现为准。
+
 ## 自动运行
 
 这个系统可以自动模拟买入、卖出、结算，但需要你的 WSL/电脑在对应时间可运行。推荐节奏：
