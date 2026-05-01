@@ -17,7 +17,7 @@ class Signal:
 
 
 class TrendMomentumStrategy:
-    """A conservative long-only A-share trend and momentum selector."""
+    """Long-only A-share multi-factor trend, momentum, and risk selector."""
 
     def __init__(self, config: StrategyConfig):
         self.config = config
@@ -40,22 +40,30 @@ class TrendMomentumStrategy:
             if len(data) < max(self.config.ma_slow, self.config.momentum_days) + 5:
                 continue
             latest = data.iloc[-1]
-            if pd.isna(latest["ma_fast"]) or pd.isna(latest["ma_slow"]) or pd.isna(latest["momentum"]):
+            needed = ["ma_fast", "ma_slow", "ma_120", "momentum", "momentum_60", "momentum_120"]
+            if any(pd.isna(latest[item]) for item in needed):
                 continue
 
-            trend = float(latest["ma_fast"] > latest["ma_slow"]) + float(latest["close"] > latest["ma_fast"])
-            momentum = max(float(latest["momentum"]), -0.3)
-            volatility_penalty = min(float(latest.get("volatility", 0) or 0), 0.08)
+            trend = (
+                float(latest["close"] > latest["ma_fast"])
+                + float(latest["ma_fast"] > latest["ma_slow"])
+                + float(latest["ma_slow"] > latest["ma_120"])
+            )
+            mom20 = max(float(latest["momentum"]), -0.3)
+            mom60 = max(float(latest["momentum_60"]), -0.4)
+            mom120 = max(float(latest["momentum_120"]), -0.5)
+            momentum_score = 0.45 * mom20 + 0.35 * mom60 + 0.20 * mom120
+            volatility_penalty = min(float(latest.get("volatility_60", 0) or 0), 0.08)
             drawdown_penalty = abs(min(float(latest.get("drawdown_60", 0) or 0), 0))
-            score = trend + momentum * 3 - volatility_penalty * 5 - drawdown_penalty
+            score = trend + momentum_score * 3.5 - volatility_penalty * 6 - drawdown_penalty * 1.2
 
-            if trend >= 2 and score > 1.2:
+            if trend >= 2 and score > 1.4:
                 candidates.append(
                     Signal(
                         symbol=symbol,
                         score=score,
                         target_weight=0.0,
-                        reason=f"MA{self.config.ma_fast}>MA{self.config.ma_slow}, momentum={momentum:.2%}",
+                        reason=f"trend={trend:.0f}/3, mom20={mom20:.2%}, mom60={mom60:.2%}, dd60={-drawdown_penalty:.2%}",
                     )
                 )
 

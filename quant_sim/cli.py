@@ -106,6 +106,7 @@ def main() -> None:
         _print_summary(result["summary"])
         _print(f"settlement saved: {result['json_path']}")
         _print(f"positions saved: {result['csv_path']}")
+        _print(f"markdown report saved: {result['md_path']}")
     elif args.command == "watch":
         from .paper import PaperTrader
 
